@@ -6,7 +6,7 @@ Code for the Coursera "Getting and Cleaning Data" Course Project
 - run_analysis.R: contains the neccesary R code to pass from the original Samsung Galaxy S smartphone' accelerometers raw dataset [downloadable here]( 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) to a clean dataset which includes the mean and standard deviation values of both the train and the test originally independent datasets.
 
-* The code does the following.*
+The code does the following.
 
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
