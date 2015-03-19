@@ -6,8 +6,8 @@ This repo contains the files for the Coursera "Getting and Cleaning Data" Course
 - run_analysis.R: the R scritp that processes the data in order to generate the tidy dataset from the original Samsung Galaxy S smartphone' accelerometers raw dataset [downloadable here]( 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). The tidy dataset includes the mean and standard deviation values of both the train and the test originally independent datasets.
 
-- CodeBook.md The code book that describes the variables and the data as well as the transformations performed to clean up the raw data
-- 
+* CodeBook.md The code book that describes the variables and the data as well as the transformations performed to clean up the raw data
+
 - README.md The README file for this repo.
 
 ## Objectives of the code
