@@ -1,4 +1,9 @@
-# Don forget to setwd(DirectoryWithSamsungData)
+## Don't forget to setwd(DirectoryWithSamsungData)
+# setwd(DirectoryWithSamsungData) 
+## in my computer:
+## setwd("C:/R/Getting and clearing data quizzes/CourseProject/UCI HAR Dataset")
+## Clear workspace
+# rm(list=ls())
 
 ########################################################################
 # Extract basic information about the features recorded
@@ -25,15 +30,15 @@ x_train <- read.table("x_train.txt")
 
 # Subset the means and std and name them appropiately
 x_trainFiltered <- x_train[,meanAndStdIndexes]
-names(x_trainFiltered )<-features[meanAndStdIndexes,2]
+colnames(x_trainFiltered )<-features[meanAndStdIndexes,2]
 
 # Extract the activities from y_train.txt and name it
 y_train <- read.table("y_train.txt")
-names(y_train) <- "Activity"
+colnames(y_train) <- "Activity"
 
 # Same with subjects from subject_train.txt
 subject_train <- read.table("subject_train.txt")
-names(subject_train) <- "Subject"
+colnames(subject_train) <- "Subject"
 
 # Put everything together into a data.frame
 trainSet <- data.frame(cbind(y_train,subject_train, x_trainFiltered))
@@ -48,22 +53,28 @@ setwd("../")
 setwd("test")
 x_test <- read.table("x_test.txt")
 x_testFiltered <- x_test[,meanAndStdIndexes]
-names(x_testFiltered )<-features[meanAndStdIndexes,2]
+colnames(x_testFiltered )<-features[meanAndStdIndexes,2]
 
 y_test <- read.table("y_test.txt")
-names(y_test) <- "Activity"
+colnames(y_test) <- "Activity"
 
 subject_test <- read.table("subject_test.txt")
-names(subject_test) <- "Subject"
+colnames(subject_test) <- "Subject"
 
 testSet <- data.frame(cbind(y_test,subject_test, x_testFiltered))
 testSet[,1]<-activityLabels[testSet[,1],2]
 
 ########################################################################
-# Merge Both Datasets in a finalSet
+# Merge Both Datasets
 
-finalSet <- rbind(trainSet, testSet)
+all_data <- rbind(trainSet, testSet)
+
+# Create a second, independent tidy data set with the average of each variable
+# for each activity and each subject
+# Plyr library is used in this final step
+library(plyr)
+finalSet <- ddply(all_data, .(Subject, Activity), function(x) colMeans(x[, 3:81]))
 
 # Write final result in a txt file
-setwd("../"))# I go up a directory so it doesn't get lost in the test directory
+setwd("../")# I go up a directory so it doesn't get lost in the test directory
 write.table(finalSet, "CourseProjectfinalSet.txt", row.name = F)
