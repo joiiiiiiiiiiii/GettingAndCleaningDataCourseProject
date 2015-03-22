@@ -27,5 +27,15 @@ The transformations carried out were:
 
 ## Final Data Set contents
 
-The new data set has a total of 180 observations over 79 variables
+The new data set has a total of 180 observations grouped by subject and activity over 79 variables
 
+## Variables legend
+
+### Grouping variables: Subject and Activity
+
+ - Subject: integer => subject ID.
+ - Activity: string => activity name:
+
+### Measurement Means (79)
+
+Values are the averages of measurements for each subject and activity. Variable names indicate the type of measurement. All values are floating point numbers.
