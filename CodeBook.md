@@ -15,18 +15,17 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ## Transformations
 
-The original dataSet, composed of train and test data was processed in order to obtain the averages ot the values of the 6 activities performed by the 30 subjects.
+The original dataSet, composed of train and test data was processed in order to obtain the averages of each of the parameters recorded from the 6 activities performed by the 30 subjects.
 
 The transformations carried out were:
 
 - the training and the test sets were merged in one data set.
-- the mean and standard deviation for each measurement were used in the analysis, the rest of the parameters were discarded
-- the new data set uses descriptive activity names to name the activities (numbers in the original data set)
+- the mean and standard deviation for each measurement were used in the analysis, the rest of the originally recorded parameters were discarded
+- the new data set uses descriptive activity names for the activities (numbers in the original data set)
 - the new data set labels each of the fields in the dataSet with descriptive variable names.
-- means of he values aggregated by subject and activity were calculated
+- the results of the means of he values aggregated by subject and activity were saved in a .txt flat text file.
 
 ## Final Data Set contents
 
 The new data set has a total of 180 observations over 79 variables
 
-From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
