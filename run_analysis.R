@@ -67,14 +67,16 @@ testSet[,1]<-activityLabels[testSet[,1],2]
 ########################################################################
 # Merge Both Datasets
 
-all_data <- rbind(trainSet, testSet)
+allData <- rbind(trainSet, testSet) # According to the course project instructions
+                                      # this is the data set of point 4
 
 # Create a second, independent tidy data set with the average of each variable
 # for each activity and each subject
 # Plyr library is used in this final step
 library(plyr)
-finalSet <- ddply(all_data, .(Subject, Activity), function(x) colMeans(x[, 3:81]))
+# we use all_data for this, and an anonymus function to calculate means
+finalSet <- ddply(allData, .(Subject, Activity), function(x) colMeans(x[, 3:81]))
 
 # Write final result in a txt file
-setwd("../")# I go up a directory so it doesn't get lost in the test directory
+setwd("../")# I go up a directory so the file doesn't get lost in the test directory
 write.table(finalSet, "CourseProjectfinalSet.txt", row.name = F)
